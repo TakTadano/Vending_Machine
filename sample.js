@@ -1,5 +1,6 @@
 class People{
-    constructor(name, bounty, imgURL){
+    constructor(id, name, bounty, imgURL){
+        this.id = id;
         this.name = name;
         this.bounty = bounty;
         this.imgURL = imgURL;
@@ -7,24 +8,73 @@ class People{
 }
 
 const peopleList = [
-    new People("Monkey D. Luffy", "3,000,000,000", "./figs/onepiece01_luffy.png"),
-    new People("Roronoa Zoro", "3,000,000,000", "./figs/onepiece02_zoro_bandana.png"),
-    new People("Nami", "3,000,000,000", "./figs/onepiece03_nami.png"),
-    new People("Usopp", "3,000,000,000", "./figs/onepiece04_usopp_sogeking.png"),
-    new People("Vinsmoke Sanji", "3,000,000,000", "./figs/onepiece05_sanji.png"),
-    new People("Tony Tony Chopper", "3,000,000,000", "./figs/onepiece06_chopper.png"),
-    new People("Nico Robin", "3,000,000,000", "./figs/onepiece07_robin.png"),
-    new People("Franky ", "3,000,000,000", "./figs/onepiece08_franky.png"),
-    new People("Brook", "3,000,000,000", "./figs/onepiece09_brook.png"),
-    new People("Jinbe", "3,000,000,000", "./figs/onepiece10_jinbe.png")
+    new People(0,"Monkey D. Luffy", "3,000,000,000", "./figs/onepiece01_luffy.png"),
+    new People(1,"Roronoa Zoro", "3,000,000,000", "./figs/onepiece02_zoro_bandana.png"),
+    new People(2,"Nami", "3,000,000,000", "./figs/onepiece03_nami.png"),
+    new People(3,"Usopp", "3,000,000,000", "./figs/onepiece04_usopp_sogeking.png"),
+    new People(4,"Vinsmoke Sanji", "3,000,000,000", "./figs/onepiece05_sanji.png"),
+    new People(5,"Tony Tony Chopper", "3,000,000,000", "./figs/onepiece06_chopper.png"),
+    new People(6,"Nico Robin", "3,000,000,000", "./figs/onepiece07_robin.png"),
+    new People(7,"Franky ", "3,000,000,000", "./figs/onepiece08_franky.png"),
+    new People(8,"Brook", "3,000,000,000", "./figs/onepiece09_brook.png"),
+    new People(9,"Jinbe", "3,000,000,000", "./figs/onepiece10_jinbe.png")
 ]
     
 
 //
 
+class Page{
 
+    //HTML作成
+    static createHTML(){
+        let target = document.getElementById("target");
+        //target.classList.add
 
+        let rightSecDiv = Page.createRightSection();
+        target.append(rightSecDiv);
+    }
 
+    //右側部作成
+    static createRightSection(){
+        let rightSecDiv = document.createElement("div");
+        rightSecDiv.classList.add("col-12", "col-md-5");
+        
+        //入力部の表示
+        let calculatorDiv = Page.createCalculatorDiv("bgcolor-grey", "border-lightgrey");
+        rightSecDiv.append(calculatorDiv);
+
+        return rightSecDiv;
+    }
+
+    //入力フォームDiv作成
+    static createCalculatorDiv(bgColor, borderColor){
+        let calculatorDiv = document.createElement("div");
+        calculatorDiv.classList.add("col-12", "d-flex", "justify-content-center", `${bgColor}`, "border", `${borderColor}`, "ps-3");
+        let buttonsDiv = document.createElement("div");
+        buttonsDiv.classList.add("col-11", "d-flex", "flex-wrap");
+        calculatorDiv.append(buttonsDiv);
+
+        //数字ボタン作成
+        Page.createBtns(buttonsDiv, "btn-light", "border-darkgrey", "font-kaushan", "text-darkgrey");
+
+        return calculatorDiv;
+    }
+
+    //Button作成
+    static createBtns(buttonsDiv, btnColor, borderColor, font, textColor){
+        for(let i = 0; i <= 9; i++){
+            let currentBtn = document.createElement("button");
+            currentBtn.type = "button";
+            currentBtn.classList.add("btn", "m-2", "btn-width", "border", `${btnColor}`, `${borderColor}`, `${font}`, `${textColor}`);
+            currentBtn.innerHTML = `${i.toString()}`;
+            buttonsDiv.append(currentBtn);
+        }
+    }
+}
+
+Page.createHTML();
+
+/*
 const target = document.getElementById("target");
 const sliderItems = document.querySelectorAll(".slider-item");
 
@@ -109,4 +159,4 @@ leftBtn.addEventListener("click", function(){
 
 rightBtn.addEventListener("click", function(){
     slideJump(+1, "right");
-})
+})*/

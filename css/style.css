@@ -1,5 +1,10 @@
-.unti{
-    background-color: chocolate;
+.bgcolor-grey{
+    background-color: #999;
+
+}
+
+.border-lightgrey{
+    border-color: #bfbfbf;
 }
 
 
@@ -7,6 +12,9 @@
     width: 40%;
 }
 
+.font-kaushan{
+    font-family: 'Kaushan Script', cursive;
+}
 
 .box{
     height: 50vh;
@@ -25,6 +33,11 @@
 
 .expand-animation{
     animation: deplete 1s linear reverse forwards;
+}
+
+
+.btn-width{
+    width: 20%;
 }
 
 @keyframes    deplete {
