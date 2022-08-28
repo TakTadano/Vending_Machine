@@ -1,3 +1,30 @@
+class People{
+    constructor(name, bounty, imgURL){
+        this.name = name;
+        this.bounty = bounty;
+        this.imgURL = imgURL;
+    }
+}
+
+const peopleList = [
+    new People("Monkey D. Luffy", "3,000,000,000", "./figs/onepiece01_luffy.png"),
+    new People("Roronoa Zoro", "3,000,000,000", "./figs/onepiece02_zoro_bandana.png"),
+    new People("Nami", "3,000,000,000", "./figs/onepiece03_nami.png"),
+    new People("Usopp", "3,000,000,000", "./figs/onepiece04_usopp_sogeking.png"),
+    new People("Vinsmoke Sanji", "3,000,000,000", "./figs/onepiece05_sanji.png"),
+    new People("Tony Tony Chopper", "3,000,000,000", "./figs/onepiece06_chopper.png"),
+    new People("Nico Robin", "3,000,000,000", "./figs/onepiece07_robin.png"),
+    new People("Franky ", "3,000,000,000", "./figs/onepiece08_franky.png"),
+    new People("Brook", "3,000,000,000", "./figs/onepiece09_brook.png"),
+    new People("Jinbe", "3,000,000,000", "./figs/onepiece10_jinbe.png")
+]
+    
+
+//
+
+
+
+
 const target = document.getElementById("target");
 const sliderItems = document.querySelectorAll(".slider-item");
 
