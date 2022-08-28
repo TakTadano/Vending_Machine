@@ -1,0 +1,101 @@
+.bgcolor-dark{
+    background-color: #4d4d4d;
+}
+.bgcolor-grey{
+    background-color: #999999;
+}
+.border-darkgrey{
+    border-color: #4d4d4d;
+}
+.border-grey{
+    border-color: #999999;
+}
+.border-lightgrey{
+    border-color: #bfbfbf;
+}
+.text-darkgrey{
+    color: #4d4d4d;
+}
+.text-lightgrey{
+    color: #bfbfbf;
+}
+.btn-width{
+    width: 21%;
+}
+
+@media (min-width:768px){
+    .btn-width{
+        width: 18%;
+    }
+}
+.font-kaushan{
+    font-family: 'Kaushan Script', cursive;
+}
+.img-disappear{
+    animation: deplete 2s linear forwards;
+}
+.img-appear{
+    animation: deplete 2s linear reverse forwards;
+}
+@keyframes deplete{
+    0%{
+        width: 100%;
+        opacity: 1;
+        transform: scale(1);
+        transform-origin: top;
+    }
+    100%{
+        width: 0%;
+        opacity: 0;
+        transform: scale(0);
+        transform-origin: top;
+    }
+}
+
+ 
+.title-appear{
+    animation: title-appear-animation 1.5s linear forwards;
+}
+.title-disappear{
+    animation: title-appear-animation 1.5s reverse linear forwards;
+}
+@keyframes title-appear-animation{
+    0%{
+        opacity: 0;
+        display: none;
+        height: 0%;
+    }
+    100%{
+        opacity: 1;
+        display: block;
+        height: 100%;
+    }
+}
+
+.link-appear{
+    animation: title-appear-animation 4s linear forwards;
+}
+.link-disappear{
+    animation: title-appear-animation 4s reverse linear forwards;
+}
+
+.line {
+  position: relative;
+}
+.line-animation{
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    height: 2px;
+    background: lightgray;
+    transform: translateX(-50%);
+    animation: line 1.5s linear forwards;
+}
+@keyframes line{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 250%;
+    }
+}
