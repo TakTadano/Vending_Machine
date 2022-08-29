@@ -30,9 +30,36 @@ class Page{
         let target = document.getElementById("target");
         //target.classList.add
 
+
+        //左側
+        let sliderDiv = Page.createLeftSection();
+        target.append(sliderDiv);
+
+        //右側
         let rightSecDiv = Page.createRightSection();
         target.append(rightSecDiv);
     }
+
+    //左側部作成
+    static createLeftSection(){
+        let sliderDiv = document.createElement("div");
+        sliderDiv.id = "slider";
+        sliderDiv.classList.add("col-12", "col-md-5", "d-flex", "justify-content-center", "align-items-center",  "mx-2", "p-4", "p-md-0");
+
+        let main = document.createElement("div");
+        main.classList.add("main");
+        main.setAttribute("data-index", undefined);
+        let extra = document.createElement("div");
+        extra.classList.add("extra");
+
+        sliderDiv.append(main);
+        sliderDiv.append(extra);
+
+        return sliderDiv;
+    }
+
+
+
 
     //右側部作成
     static createRightSection(){
@@ -70,7 +97,14 @@ class Page{
             buttonsDiv.append(currentBtn);
         }
     }
+
+    //受け取ったIDの手配書をスライダーに表示する関数
+    static updateWantedLetter(nextId){
+        
+    }
 }
+
+//どこかでset
 
 Page.createHTML();
 

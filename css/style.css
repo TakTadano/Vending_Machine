@@ -7,6 +7,10 @@
     border-color: #bfbfbf;
 }
 
+body{
+    font-family: serif !important;
+    color: #382820;
+}
 
 .img-background{
     width: 40%;
@@ -16,16 +20,18 @@
     font-family: 'Kaushan Script', cursive;
 }
 
-.box{
-    height: 50vh;
-    padding: 0 !important;
-    transition: all 2s linear;
+.wanted{
+    font-size: 3.6rem;
 }
+
 
 .full-width{
     width:100%;
     flex-shrink: 0;
 }
+
+
+
 
 .deplete-animation{
     animation: deplete 1s linear forwards;
@@ -50,3 +56,29 @@
         opacity: 0;
     } 
 }
+
+
+
+.doa{
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.name{
+    display     : inline-block; 
+    white-space: nowrap;
+    font-size   : 2rem; 
+    line-height : 1em;          
+    transform   : scale(86%, 100%); 
+}
+
+.box{
+    height: 70vh;
+    width:50vh;
+    padding: 0 !important;
+    transition: all 2s linear;
+    background: #d6c9ab;
+}
+
+
