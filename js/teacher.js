@@ -347,4 +347,4 @@ $('a[href^="#"]').click(function(){
         let position = target.offset().top;
         $("html, body").animate({scrollTop:position}, speed, "swing");
          return false;
-　　});
+});

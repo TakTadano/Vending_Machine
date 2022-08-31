@@ -7,7 +7,7 @@ class People{
     }
 }
 
-const peopleList = [
+const WantedLetterList = [
     new People(0,"Monkey D. Luffy", "3,000,000,000", "./figs/onepiece01_luffy.png"),
     new People(1,"Roronoa Zoro", "3,000,000,000", "./figs/onepiece02_zoro_bandana.png"),
     new People(2,"Nami", "3,000,000,000", "./figs/onepiece03_nami.png"),
@@ -40,17 +40,17 @@ class Page{
         target.append(rightSecDiv);
     }
 
-    //左側部作成
+    //手配書表示部分作成
     static createLeftSection(){
         let sliderDiv = document.createElement("div");
         sliderDiv.id = "slider";
         sliderDiv.classList.add("col-12", "col-md-5", "d-flex", "justify-content-center", "align-items-center",  "mx-2", "p-4", "p-md-0");
 
         let main = document.createElement("div");
-        main.classList.add("main");
+        main.classList.add("main", "img-appear");
         main.setAttribute("data-index", undefined);
         let extra = document.createElement("div");
-        extra.classList.add("extra");
+        extra.classList.add("extra", "img-disappear");
 
         sliderDiv.append(main);
         sliderDiv.append(extra);
@@ -61,16 +61,32 @@ class Page{
 
 
 
-    //右側部作成
+    //数値入力部分作成
     static createRightSection(){
         let rightSecDiv = document.createElement("div");
         rightSecDiv.classList.add("col-12", "col-md-5");
-        
+
+        //手配書No.表示部分
+        let displayDiv = Page.createDisplayDiv("bgcolor-grey","font-kaushan", "text-light");
+        rightSecDiv.append(displayDiv);
         //入力部の表示
         let calculatorDiv = Page.createCalculatorDiv("bgcolor-grey", "border-lightgrey");
         rightSecDiv.append(calculatorDiv);
 
         return rightSecDiv;
+    }
+
+    //現在入力情報表示フォーム
+    static createDisplayDiv(bgColor, font, textColor){
+        let displayDiv = document.createElement("div");
+        displayDiv.classList.add("border", "border-lightgrey", `${bgColor}`,"pt-3");
+        displayDiv.innerHTML = `
+        <div class="d-flex">
+            <p class="col-6 ${font} ${textColor}">Id: </p>
+            <input type="text" id="WantedLetterId" style="background-color: transparent; border:none; " class="col-6 ${font} ${textColor} h-50" disabled>
+        </div>
+        `;
+        return displayDiv;
     }
 
     //入力フォームDiv作成
@@ -91,16 +107,63 @@ class Page{
     static createBtns(buttonsDiv, btnColor, borderColor, font, textColor){
         for(let i = 0; i <= 9; i++){
             let currentBtn = document.createElement("button");
+            currentBtn.id = `btn${i}`
             currentBtn.type = "button";
             currentBtn.classList.add("btn", "m-2", "btn-width", "border", `${btnColor}`, `${borderColor}`, `${font}`, `${textColor}`);
             currentBtn.innerHTML = `${i.toString()}`;
             buttonsDiv.append(currentBtn);
+
+            currentBtn.addEventListener("click", function(){
+                console.log(i);
+                Page.updateWantedLetter(i);
+            });
+
         }
     }
+    //Enterボタン未実装
+    /*
+    static createBtnE(btnColor, borderColor, font, textColor){
+        let btnE = document.createElement("button");
+        btnE.id = "btnE";
+        btnE.type = "button";
+        btnE.classList.add("btn", "m-2", "btn-width", "border", `${btnColor}`, `${borderColor}`, `${font}`, `${textColor}`);
+
+        //ここからイベントリスナー書く
+    }
+*/
+
 
     //受け取ったIDの手配書をスライダーに表示する関数
     static updateWantedLetter(nextId){
+        let main = document.querySelectorAll(".main").item(0);
+        let extra = document.querySelectorAll(".extra").item(0);
         
+        let currentId = main.getAttribute("data-index") === undefined ? 0 : parseInt(main.getAttribute("data-index"));
+        let nextWantedLetter = WantedLetterList[nextId];
+
+        extra.innerHTML = main.innerHTML;
+        main.innerHTML = "";
+        main.innerHTML = `
+        <div class="box slider-item text-center d-flex flex-column justify-content-center">
+            <p class="wanted">WANTED</p>
+            <div class="picture-window">
+                <img src="${nextWantedLetter.imgURL}">
+            </div>
+            <p class="doa">DEAD OR ALIVE</p>
+            <p class="name">${nextWantedLetter.name}</p>
+            <p class="price">$${nextWantedLetter.bounty}-</p>
+        </div>
+        `;
+        main.setAttribute("data-index", `${nextId.toString()}`);
+        if(nextId >= currentId){
+            sliderDiv.innerHTML = "";
+            sliderDiv.append(extra);
+            sliderDiv.append(main);
+        }else{
+            sliderDiv.innerHTML = "";
+            sliderDiv.append(main);
+            sliderDiv.append(extra);
+        }
     }
 }
 
