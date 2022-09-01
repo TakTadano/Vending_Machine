@@ -3,8 +3,17 @@
 
 }
 
+.bgcolor-brown{
+    background-color: #d6c9ab;
+};
+
+
 .border-lightgrey{
     border-color: #bfbfbf;
+}
+
+.border-dark{
+    border-color: black;
 }
 
 body{
@@ -17,7 +26,8 @@ body{
 }
 
 .font-kaushan{
-    font-family: 'Kaushan Script', cursive;
+    font-family: serif !important;
+    /*font-family: 'Kaushan Script', cursive;*/
 }
 
 .wanted{
@@ -34,11 +44,11 @@ body{
 
 
 .deplete-animation{
-    animation: deplete 2s linear forwards;
+    animation: deplete 1s linear forwards;
 }
 
 .expand-animation{
-    animation: deplete 2s linear reverse forwards;
+    animation: deplete 1s linear reverse forwards;
 }
 
 
