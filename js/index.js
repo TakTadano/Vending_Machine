@@ -9,15 +9,15 @@ class People{
 
 const WantedLetterList = [
     new People(0,"Monkey D. Luffy", "3,000,000,000", "./figs/onepiece01_luffy.png"),
-    new People(1,"Roronoa Zoro", "3,000,000,000", "./figs/onepiece02_zoro_bandana.png"),
-    new People(2,"Nami", "3,000,000,000", "./figs/onepiece03_nami.png"),
-    new People(3,"Usopp", "3,000,000,000", "./figs/onepiece04_usopp_sogeking.png"),
-    new People(4,"Vinsmoke Sanji", "3,000,000,000", "./figs/onepiece05_sanji.png"),
-    new People(5,"Tony Tony Chopper", "3,000,000,000", "./figs/onepiece06_chopper.png"),
-    new People(6,"Nico Robin", "3,000,000,000", "./figs/onepiece07_robin.png"),
-    new People(7,"Franky ", "3,000,000,000", "./figs/onepiece08_franky.png"),
-    new People(8,"Brook", "3,000,000,000", "./figs/onepiece09_brook.png"),
-    new People(9,"Jinbe", "3,000,000,000", "./figs/onepiece10_jinbe.png")
+    new People(1,"Roronoa Zoro", "1,111,000,000", "./figs/onepiece02_zoro_bandana.png"),
+    new People(2,"Nami", "366,000,000", "./figs/onepiece03_nami.png"),
+    new People(3,"Usopp", "500,000,000", "./figs/onepiece04_usopp_sogeking.png"),
+    new People(4,"Vinsmoke Sanji", "1,032,000,000", "./figs/onepiece05_sanji.png"),
+    new People(5,"Tony Tony Chopper", "1,000", "./figs/onepiece06_chopper.png"),
+    new People(6,"Nico Robin", "930,000,000", "./figs/onepiece07_robin.png"),
+    new People(7,"Franky ", "394,000,000", "./figs/onepiece08_franky.png"),
+    new People(8,"Brook", "383,000,000", "./figs/onepiece09_brook.png"),
+    new People(9,"Jinbe", "1,100,000,000", "./figs/onepiece10_jinbe.png")
 ]
     
 
@@ -47,7 +47,7 @@ class Page{
         sliderDiv.classList.add("col-12", "col-md-5", "d-flex", "justify-content-center", "align-items-center",  "mx-2", "p-4", "p-md-0");
 
         let main = document.createElement("div");
-        main.classList.add("main", "img-appear");
+        main.classList.add("main", "img-appear", "d-flex", "justify-content-center");
         main.setAttribute("data-index", undefined);
         let extra = document.createElement("div");
         extra.classList.add("extra", "img-disappear");
@@ -64,13 +64,13 @@ class Page{
     //数値入力部分作成
     static createRightSection(){
         let rightSecDiv = document.createElement("div");
-        rightSecDiv.classList.add("col-12", "col-md-5");
+        rightSecDiv.classList.add("col-12", "col-md-5", "align-items-center");
 
         //手配書No.表示部分
-        let displayDiv = Page.createDisplayDiv("bgcolor-grey","font-kaushan", "text-light");
-        rightSecDiv.append(displayDiv);
+        //let displayDiv = Page.createDisplayDiv("bgcolor-grey","font-kaushan", "text-light");
+        //rightSecDiv.append(displayDiv);
         //入力部の表示
-        let calculatorDiv = Page.createCalculatorDiv("bgcolor-grey", "border-lightgrey");
+        let calculatorDiv = Page.createCalculatorDiv("bgcolor-brown", "border-lightgrey");
         rightSecDiv.append(calculatorDiv);
 
         return rightSecDiv;
@@ -155,6 +155,8 @@ class Page{
         </div>
         `;
         main.setAttribute("data-index", `${nextId.toString()}`);
+
+        let sliderDiv = document.getElementById("slider");
         if(nextId >= currentId){
             sliderDiv.innerHTML = "";
             sliderDiv.append(extra);
