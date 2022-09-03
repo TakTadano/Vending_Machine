@@ -1,23 +1,47 @@
-.unti{
-    background-color: chocolate;
+.bgcolor-grey{
+    background-color: #999;
+
 }
 
+.bgcolor-brown{
+    background-color: #d6c9ab;
+};
+
+
+.border-lightgrey{
+    border-color: #bfbfbf;
+}
+
+.border-dark{
+    border-color: black;
+}
+
+body{
+    font-family: serif !important;
+    color: #382820;
+}
 
 .img-background{
     width: 40%;
 }
 
-
-.box{
-    height: 50vh;
-    padding: 0 !important;
-    transition: all 2s linear;
+.font-kaushan{
+    font-family: serif !important;
+    /*font-family: 'Kaushan Script', cursive;*/
 }
+
+.wanted{
+    font-size: 3.6rem;
+}
+
 
 .full-width{
     width:100%;
     flex-shrink: 0;
 }
+
+
+
 
 .deplete-animation{
     animation: deplete 1s linear forwards;
@@ -25,6 +49,11 @@
 
 .expand-animation{
     animation: deplete 1s linear reverse forwards;
+}
+
+
+.btn-width{
+    width: 20%;
 }
 
 @keyframes    deplete {
@@ -36,4 +65,33 @@
         width: 0%;
         opacity: 0;
     } 
+}
+
+
+
+.doa{
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.name{
+    display     : inline-block; 
+    white-space: nowrap;
+    font-size   : 2rem; 
+    line-height : 1em;          
+    transform   : scale(86%, 100%); 
+}
+
+.box{
+    height: 30rem;
+    width:20rem;
+    padding: 0 !important;
+    transition: all 2s linear;
+    background: #d6c9ab;
+}
+
+
+.price{
+    font-size: 1.4rem;
 }
